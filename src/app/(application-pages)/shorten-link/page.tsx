@@ -9,7 +9,9 @@ export default function Component() {
         <ShortenLinkForm />
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-sm font-medium text-card-foreground">Shortened Link:</span>
+            <span className="text-sm font-medium text-card-foreground">
+              Shortened Link:
+            </span>
             <div className="flex items-center space-x-2">
               <span className="text-sm text-primary-foreground">
                 https://example.com/abc123
@@ -30,14 +32,18 @@ export default function Component() {
             <h2 className="text-lg font-medium text-card-foreground">Recent Links</h2>
             <div className="space-y-2 mt-2">
               <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">https://lnkto.vercel.app/def456</span>
+                <span className="text-sm text-muted-foreground">
+                  https://lnkto.vercel.app/def456
+                </span>
                 <Button variant="ghost" size="icon" className="text-muted-foreground hover:bg-muted">
                   <CopyIcon className="w-4 h-4" />
                   <span className="sr-only">Copy</span>
                 </Button>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">https://lnkto.vercel.app/ghi789</span>
+                <span className="text-sm text-muted-foreground">
+                  https://lnkto.vercel.app/ghi789
+                </span>
                 <Button variant="ghost" size="icon" className="text-muted-foreground hover:bg-muted">
                   <CopyIcon className="w-4 h-4" />
                   <span className="sr-only">Copy</span>

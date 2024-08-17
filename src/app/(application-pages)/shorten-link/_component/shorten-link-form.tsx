@@ -16,6 +16,7 @@ export function ShortenLinkForm() {
     }
 
     const short = await shortenLinkAction(data as TLink);
+    console.log(short)
   }
 
   return (

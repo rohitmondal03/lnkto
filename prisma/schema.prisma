@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  engineType = "library"
 }
 
 datasource db {
@@ -77,7 +78,7 @@ model Link {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
   link         String
-  redirectPath String
+  redirectPath String   @unique
   clicks       Int
   user         User     @relation(fields: [userId], references: [id])
 

@@ -2,11 +2,14 @@
 
 import ShortUniqueId from "short-unique-id"
 
-import { db } from "@/server/db"
 import type { TLink } from "../types"
+import { db } from "@/server/db"
+import { getServerAuthSession } from "@/server/auth"
 
 
 export async function shortenLinkAction({ link, length }: TLink) {
+  const session = await getServerAuthSession();
+
   const uid = new ShortUniqueId({
     length: length,
   })
@@ -16,6 +19,7 @@ export async function shortenLinkAction({ link, length }: TLink) {
       link: link,
       clicks: 0,
       redirectPath: uid.rnd(),
+      userId: session?.user.id ?? ""
     }
   })
 
