@@ -58,7 +58,7 @@ export function LinkTable({ links }: TProps) {
               <Badge
                 className="cursor-pointer"
                 variant="secondary"
-                onClick={() => copyText(`https://LnkTo.vercel.app/${link.redirectPath}`)}
+                onClick={() => copyText(`https://lnkto.vercel.app/${link.redirectPath}`)}
               >
                 lnkto.vercel.app/{link.redirectPath}
               </Badge>
