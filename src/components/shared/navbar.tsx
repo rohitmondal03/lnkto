@@ -1,12 +1,11 @@
 import Link from "next/link"
 
 import Logo from "./logo"
+import type { TLayout } from "@/lib/types"
 import { getServerAuthSession } from "@/server/auth"
-import { Button, buttonVariants } from "../ui/button"
+import { buttonVariants } from "../ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu"
-import { TLayout } from "@/lib/types"
-import { signOut } from "next-auth/react"
 import { SignOutButton } from "./button/sign-out-button"
 
 

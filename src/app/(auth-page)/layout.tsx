@@ -7,7 +7,7 @@ import { getServerAuthSession } from "@/server/auth"
 export default async function layout({children}: TLayout) {
   const isSession = !! await getServerAuthSession();
 
-  if(isSession) redirect("/shorten-link")
+  if(isSession) redirect("/dashboard")
 
   return (
     <>

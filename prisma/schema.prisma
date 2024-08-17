@@ -2,7 +2,7 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider   = "prisma-client-js"
   engineType = "library"
 }
 
@@ -75,6 +75,7 @@ model VerificationToken {
 model Link {
   id           String   @id @default(cuid())
   userId       String
+  linkTitle    String
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
   link         String

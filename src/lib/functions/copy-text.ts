@@ -11,7 +11,7 @@ export async function copyText(text: string) {
   } catch (err) {
     toast({
       title: "Failed to copy",
-      description: err as String
+      description: err as string
     })
   }
 }

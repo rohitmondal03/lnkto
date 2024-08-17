@@ -1,11 +1,11 @@
 "use client"
 
 import type { TLink } from "@/lib/types"
-import { shortenLinkAction } from "@/lib/action/shorten-link-action"
+import { shortenLinkAction } from "@/lib/action/link-action"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { toast } from "@/components/ui/use-toast"
-import { SubmitButton } from "@/components/shared/button/submit-button"
+import { SubmitButton } from "@/components/shared/button/form-button"
 
 
 export function ShortenLinkForm() {
@@ -13,7 +13,9 @@ export function ShortenLinkForm() {
   const clientAction = async (formData: FormData) => {
     const data = {
       link: formData.get("url"),
-      length: 10
+      // length: formData.get("range") as unknown as Number,
+      length: 10,
+      title: formData.get("title")
     }
 
     const short = await shortenLinkAction(data as TLink);
@@ -31,9 +33,26 @@ export function ShortenLinkForm() {
         Link Shortener
       </h1>
       <form
-        className="space-y-4"
+        className="space-y-6"
         action={clientAction}
       >
+        <div>
+          <Label
+            htmlFor="title"
+            className="block mb-1 text-sm font-medium text-card-foreground"
+          >
+            URL Title
+          </Label>
+          <Input
+            id="title"
+            type="title"
+            name="title"
+            required
+            placeholder="Enter URL title, e.g. My Resume"
+            autoComplete="off"
+            className="w-full"
+          />
+        </div>
         <div>
           <Label
             htmlFor="url"
@@ -46,7 +65,7 @@ export function ShortenLinkForm() {
             type="url"
             name="url"
             required
-            placeholder="Enter a long URL"
+            placeholder="Enter a long URL, e.g. myresume.com"
             autoComplete="off"
             className="w-full"
           />

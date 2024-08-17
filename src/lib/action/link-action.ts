@@ -8,7 +8,7 @@ import { getServerAuthSession } from "@/server/auth"
 import { revalidatePath } from "next/cache"
 
 
-export async function shortenLinkAction({ link, length }: TLink) {
+export async function shortenLinkAction({ link, length, title }: TLink) {
   const session = await getServerAuthSession();
 
   const uid = new ShortUniqueId({
@@ -20,7 +20,8 @@ export async function shortenLinkAction({ link, length }: TLink) {
       link: link,
       clicks: 0,
       redirectPath: uid.rnd(),
-      userId: session?.user.id ?? ""
+      userId: session?.user.id ?? "",
+      linkTitle: title,
     }
   })
 
@@ -30,4 +31,15 @@ export async function shortenLinkAction({ link, length }: TLink) {
     link,
     path: uid.rnd(),
   }
+}
+
+
+export async function deleteLinkAction(redirectPath: string) {
+  await db.link.delete({
+    where: {
+      redirectPath: redirectPath
+    }
+  })
+
+  revalidatePath("/dashboard")
 }
