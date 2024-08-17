@@ -16,7 +16,6 @@ export async function shortenLinkAction({ link, length }: TLink) {
       link: link,
       clicks: 0,
       redirectPath: uid.rnd(),
-      // userId: "hehe_rohit"
     }
   })
 

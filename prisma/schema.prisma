@@ -60,7 +60,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   posts         Post[]
-  // Link          Link[]
+  Link          Link[]
 }
 
 model VerificationToken {
@@ -73,13 +73,13 @@ model VerificationToken {
 
 model Link {
   id           String   @id @default(cuid())
-  // userId       String
+  userId       String
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
   link         String
   redirectPath String
   clicks       Int
-  // user         User     @relation(fields: [userId], references: [id])
+  user         User     @relation(fields: [userId], references: [id])
 
   @@unique([id, redirectPath])
 }
