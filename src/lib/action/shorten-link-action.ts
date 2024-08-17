@@ -5,6 +5,7 @@ import ShortUniqueId from "short-unique-id"
 import type { TLink } from "../types"
 import { db } from "@/server/db"
 import { getServerAuthSession } from "@/server/auth"
+import { revalidatePath } from "next/cache"
 
 
 export async function shortenLinkAction({ link, length }: TLink) {
@@ -22,6 +23,8 @@ export async function shortenLinkAction({ link, length }: TLink) {
       userId: session?.user.id ?? ""
     }
   })
+
+  revalidatePath("/shorten-link")
 
   return {
     link,

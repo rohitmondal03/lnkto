@@ -1,10 +1,11 @@
 "use client"
 
+import type { TLink } from "@/lib/types"
 import { shortenLinkAction } from "@/lib/action/shorten-link-action"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import type { TLink } from "@/lib/types"
+import { toast } from "@/components/ui/use-toast"
+import { SubmitButton } from "@/components/shared/button/submit-button"
 
 
 export function ShortenLinkForm() {
@@ -16,8 +17,13 @@ export function ShortenLinkForm() {
     }
 
     const short = await shortenLinkAction(data as TLink);
-    console.log(short)
+
+    toast({
+      title: "Link shortened",
+      description: "https://lnkto.vercel.app" + short.path,
+    })
   }
+
 
   return (
     <div className="space-y-4">
@@ -45,12 +51,7 @@ export function ShortenLinkForm() {
             className="w-full"
           />
         </div>
-        <Button
-          type="submit"
-          className="w-full"
-        >
-          Shorten
-        </Button>
+        <SubmitButton />
       </form>
     </div>
   )

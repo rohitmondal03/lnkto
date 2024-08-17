@@ -2,7 +2,7 @@ import { type Metadata } from "next";
 import { Montserrat } from "next/font/google"
 
 import type { TLayout } from "@/lib/types";
-import { ToastProvider } from "@/components/ui/toast";
+import { Toaster } from "@/components/ui/toaster"
 import Navbar from "@/components/shared/navbar";
 
 import "@/styles/globals.css";
@@ -27,18 +27,13 @@ export default function RootLayout({ children }: TLayout) {
       lang="en"
       className={montserrratFont.className}
     >
-      <ToastProvider
-        swipeDirection="down"
-        duration={2}
-        swipeThreshold={100}
-      >
-        <body>
-          <Navbar />
-          <main className="px-12 py-16">
-            {children}
-          </main>
-        </body>
-      </ToastProvider>
+      <body>
+        <Navbar />
+        <main className="px-12 py-16">
+          {children}
+        </main>
+        <Toaster />
+      </body>
     </html>
   );
 }

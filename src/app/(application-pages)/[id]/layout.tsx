@@ -1,5 +1,7 @@
-import { db } from '@/server/db'
 import { redirect } from 'next/navigation'
+
+import { db } from '@/server/db'
+
 
 export default async function layout({
   params
@@ -16,6 +18,15 @@ export default async function layout({
     select: {
       clicks: true,
       link: true,
+    }
+  })
+
+  await db.link.update({
+    where: {
+      redirectPath: params.id
+    },
+    data: {
+      clicks: Number(linkDetails?.clicks) + 1
     }
   })
 

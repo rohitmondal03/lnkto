@@ -2,8 +2,12 @@ import Link from "next/link"
 
 import Logo from "./logo"
 import { getServerAuthSession } from "@/server/auth"
-import { buttonVariants } from "../ui/button"
+import { Button, buttonVariants } from "../ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu"
+import { TLayout } from "@/lib/types"
+import { signOut } from "next-auth/react"
+import { SignOutButton } from "./button/sign-out-button"
 
 
 export default async function Navbar() {
@@ -15,20 +19,23 @@ export default async function Navbar() {
       <Logo />
       <div className="flex items-center gap-x-8">
         {session ? (
-          <Avatar>
-            <AvatarImage
-              src={user?.image ?? ""}
-              loading="lazy"
-            />
-            <AvatarFallback>
-              {user?.name?.charAt(0) ?? ""}
-            </AvatarFallback>
-          </Avatar>
+          <AvatarDropdown>
+            <Avatar>
+              <AvatarImage
+                src={user?.image ?? ""}
+                loading="lazy"
+                className="cursor-pointer"
+              />
+              <AvatarFallback>
+                {user?.name?.charAt(0) ?? ""}
+              </AvatarFallback>
+            </Avatar>
+          </AvatarDropdown>
         ) : (
           <Link
             href={"/sign-in"}
             className={buttonVariants({
-              variant: "default",
+              variant: "secondary",
             })}
           >
             Sign In
@@ -37,12 +44,34 @@ export default async function Navbar() {
         <Link
           href={"/shorten-link"}
           className={buttonVariants({
-            variant: "secondary",
+            variant: "default",
           })}
         >
           Shorten link
         </Link>
       </div>
     </nav>
+  )
+}
+
+
+
+const AvatarDropdown = ({ children }: TLayout) => {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        {children}
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="font-bold space-y-2">
+        <DropdownMenuItem>
+          <Link href={"/dashboard"}>
+            Dashboard
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem className="px-0 py-0">
+          <SignOutButton />
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 }
