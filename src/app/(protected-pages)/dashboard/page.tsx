@@ -39,7 +39,7 @@ export default async function DashboardPage() {
         <p className="text-xl font-semibold">
           Your&apos;s links Dashboard
         </p>
-        <div className="relative sm:ml-auto flex-1 sm:grow-0 w-full">
+        {/* <div className="relative sm:ml-auto flex-1 sm:grow-0 w-full">
           <div className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
           <Input
             name="search-field"
@@ -47,7 +47,7 @@ export default async function DashboardPage() {
             placeholder="Search links..."
             className="w-full rounded-lg bg-background pl-8 sm:w-[230px] lg:w-[336px]"
           />
-        </div>
+        </div> */}
       </header>
       <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
         <Card x-chunk="dashboard-06-chunk-0">
