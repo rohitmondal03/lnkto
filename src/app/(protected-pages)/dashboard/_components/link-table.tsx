@@ -34,8 +34,8 @@ export function LinkTable({ links }: TProps) {
       <TableHeader>
         <TableRow>
           <TableHead>Title</TableHead>
-          <TableHead>Link</TableHead>
-          <TableHead className="hidden sm:table-cell">Shortened</TableHead>
+          <TableHead className="hidden lg:table-cell">Link</TableHead>
+          <TableHead className="table-cell">Shortened</TableHead>
           <TableHead>Clicks</TableHead>
           <TableHead></TableHead>
         </TableRow>
@@ -49,18 +49,18 @@ export function LinkTable({ links }: TProps) {
             <TableCell>
               {link.linkTitle}
             </TableCell>
-            <TableCell>
+            <TableCell className="hidden lg:table-cell">
               <Link href="#" className="font-medium" prefetch={false}>
                 {link.link}
               </Link>
             </TableCell>
-            <TableCell className="hidden sm:table-cell">
+            <TableCell className="table-cell">
               <Badge
                 className="cursor-pointer"
                 variant="secondary"
                 onClick={() => copyText(`https://lnkto.vercel.app/${link.redirectPath}`)}
               >
-                lnkto.vercel.app/{link.redirectPath}
+                <span className="hidden lg:block">lnkto.vercel.app</span>/{link.redirectPath}
               </Badge>
             </TableCell>
             <TableCell>

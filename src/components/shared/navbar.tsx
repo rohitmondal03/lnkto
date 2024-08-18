@@ -1,22 +1,28 @@
 import Link from "next/link"
 
-import Logo from "./logo"
 import type { TLayout } from "@/lib/types"
+import Logo from "./logo"
 import { getServerAuthSession } from "@/server/auth"
+import { SignOutButton } from "./button/sign-out-button"
 import { buttonVariants } from "../ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu"
-import { SignOutButton } from "./button/sign-out-button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu"
 
 
 export default async function Navbar() {
   const session = await getServerAuthSession();
   const user = session?.user;
 
+
   return (
-    <nav className='flex items-center justify-between border-b-2 border-zinc-300 py-6 px-20'>
+    <nav className='flex items-center justify-between border-b-2 border-zinc-300 py-4 sm:py-6 px-4 sm:px-12 md:px-20'>
       <Logo />
-      <div className="flex items-center gap-x-8">
+      <div className="flex items-center gap-x-4 sm:gap-x-8">
         {session ? (
           <AvatarDropdown>
             <Avatar>

@@ -35,17 +35,17 @@ export default async function DashboardPage() {
 
   return (
     <div className="flex min-h-full w-full flex-col bg-slate-500/10 space-y-8 py-6 rounded-xl">
-      <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+      <header className="sticky top-0 z-30 flex flex-col sm:flex-row h-14 items-center gap-4 border-b px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
         <p className="text-xl font-semibold">
           Your&apos;s links Dashboard
         </p>
-        <div className="relative ml-auto flex-1 md:grow-0">
+        <div className="relative sm:ml-auto flex-1 sm:grow-0 w-full">
           <div className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
           <Input
             name="search-field"
             type="search"
             placeholder="Search links..."
-            className="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[336px]"
+            className="w-full rounded-lg bg-background pl-8 sm:w-[230px] lg:w-[336px]"
           />
         </div>
       </header>
@@ -59,7 +59,7 @@ export default async function DashboardPage() {
               View and manage the performance of your shortened links.
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="px-0 sm:px-6">
             <LinkTable
               links={usersLinks}
             />

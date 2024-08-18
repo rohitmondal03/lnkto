@@ -29,7 +29,7 @@ export default function RootLayout({ children }: TLayout) {
     >
       <body>
         <Navbar />
-        <main className="px-12 py-16">
+        <main className="px-3 sm:px-8 lg:px-12 py-16">
           {children}
         </main>
         <Toaster />

@@ -7,11 +7,11 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-[100dvh]">
       <section className="w-full py-12 md:py-24 lg:py-32">
-        <div className="container px-4 md:px-6">
-          <div className="grid gap-4 px-10 md:grid-cols-2 md:gap-16">
-            <div className="space-y-5">
-              <h1 className="lg:leading-tight text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
-                Shorten your links with <span className="underline decoration-slate-500">lnkto</span>
+        <div className="container px-0">
+          <div className="grid gap-4 md:grid-cols-2 md:gap-6 lg:gap-16">
+            <div className="space-y-5 text-center md:text-left">
+              <h1 className="font-bold text-3xl sm:text-4xl md:text-[2.5rem] lg:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem] lg:leading-tight sm:leading-tight">
+                Shorten your links with <span className="underline decoration-slate-500 underline-offset-4">lnkto</span>
               </h1>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
                 lnkto is a simple and powerful link shortener that helps you create custom, trackable links for your
