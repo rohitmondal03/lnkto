@@ -1,4 +1,5 @@
-import { redirect } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
+import { revalidatePath } from 'next/cache'
 
 import { db } from '@/server/db'
 
@@ -21,6 +22,10 @@ export default async function layout({
     }
   })
 
+  if(!linkDetails) {
+    return notFound();
+  }
+
   await db.link.update({
     where: {
       redirectPath: params.id
@@ -30,5 +35,6 @@ export default async function layout({
     }
   })
 
+  revalidatePath("/dashboard")
   redirect(linkDetails?.link ?? "")
 }
