@@ -30,6 +30,7 @@ export default async function DashboardPage() {
     orderBy: {
       createdAt: "desc"
     },
+    // take: 10,
   })
 
 
@@ -66,7 +67,11 @@ export default async function DashboardPage() {
           </CardContent>
           <CardFooter>
             <div className="text-xs text-muted-foreground">
-              Showing <strong>1-10</strong> of <strong>{usersLinks.length}</strong> links
+              Showing {" "}
+              <strong>1-{usersLinks.length < 10 ? usersLinks.length : 10}</strong> {" "}
+              of {" "}
+              <strong>{usersLinks.length}</strong> {" "}
+              links
             </div>
           </CardFooter>
         </Card>

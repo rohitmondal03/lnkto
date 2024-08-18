@@ -49,10 +49,8 @@ export function LinkTable({ links }: TProps) {
             <TableCell>
               {link.linkTitle}
             </TableCell>
-            <TableCell className="hidden lg:table-cell">
-              <Link href="#" className="font-medium" prefetch={false}>
-                {link.link}
-              </Link>
+            <TableCell className="hidden lg:table-cell font-medium">
+              {link.link}
             </TableCell>
             <TableCell className="table-cell">
               <Badge
