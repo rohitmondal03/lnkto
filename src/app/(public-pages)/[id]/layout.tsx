@@ -1,5 +1,4 @@
 import { notFound, redirect } from 'next/navigation'
-import { revalidatePath } from 'next/cache'
 
 import { db } from '@/server/db'
 
@@ -31,10 +30,10 @@ export default async function layout({
       redirectPath: params.id
     },
     data: {
-      clicks: Number(linkDetails?.clicks) + 1
+      clicks: Number(linkDetails?.clicks) + 1,
+      lastClicked: new Date(),
     }
   })
 
-  revalidatePath("/dashboard")
   redirect(linkDetails?.link ?? "")
 }

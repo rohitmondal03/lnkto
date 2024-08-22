@@ -1,7 +1,7 @@
 "use client"
 
 import type { TLink } from "@/lib/types"
-import { shortenLinkAction } from "@/lib/action/link-action"
+import { shortenLinkAction } from "@/action/link-action"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { toast } from "@/components/ui/use-toast"

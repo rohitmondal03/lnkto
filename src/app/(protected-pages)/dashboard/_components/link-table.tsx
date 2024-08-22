@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Trash2 } from "lucide-react"
 
-import { deleteLinkAction } from "@/lib/action/link-action"
+import { deleteLinkAction } from "@/action/link-action"
 import { copyText } from "@/lib/functions/copy-text"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"

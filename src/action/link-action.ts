@@ -2,7 +2,7 @@
 
 import ShortUniqueId from "short-unique-id"
 
-import type { TLink } from "../types"
+import type { TLink } from "../lib/types"
 import { db } from "@/server/db"
 import { getServerAuthSession } from "@/server/auth"
 import { revalidatePath } from "next/cache"
