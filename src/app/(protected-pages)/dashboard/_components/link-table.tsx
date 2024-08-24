@@ -35,6 +35,7 @@ export function LinkTable({ links }: TProps) {
         <TableRow>
           <TableHead>Title</TableHead>
           <TableHead className="hidden lg:table-cell">Link</TableHead>
+          <TableHead className="hidden lg:table-cell">Created At</TableHead>
           <TableHead className="table-cell">Shortened</TableHead>
           <TableHead>Clicks</TableHead>
           <TableHead></TableHead>
@@ -44,13 +45,16 @@ export function LinkTable({ links }: TProps) {
         {links.map((link) => (
           <TableRow
             key={link.redirectPath}
-            className="hover:bg-transparent"
+            className="hover:bg-orange-100/40 cursor-pointer"
           >
             <TableCell>
               {link.linkTitle}
             </TableCell>
-            <TableCell className="hidden lg:table-cell font-medium">
+            <TableCell className="hidden lg:table-cell font-medium w-64">
               {link.link}
+            </TableCell>
+            <TableCell className="hidden lg:table-cell font-medium">
+              {link.createdAt.toDateString()}
             </TableCell>
             <TableCell className="table-cell">
               <Badge

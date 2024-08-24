@@ -27,49 +27,47 @@ export default async function ShortenLinkPage() {
 
 
   return (
-    <div className="flex flex-col items-center justify-center">
-      <div className="max-w-md w-full px-4 py-8 bg-card space-y-6">
-        <ShortenLinkForm />
-        <div className="border-t pt-4 space-y-4">
-          <h2 className="text-lg font-semibold text-card-foreground">
-            {usersLinks.length === 0 ? (
-              "You have 0 links"
-            ) : (
-              <>
-                Your lastest {usersLinks.length < 5 ? usersLinks.length : 5} links:
-              </>
-            )}
-          </h2>
-          <div>
-            {usersLinks.map((link) => (
-              <div
-                key={link.redirectPath}
-                className="flex items-center justify-between"
+    <div className="flex flex-col lg:flex-row items-center justify-around gap-10 xl:gap-28 w-full px-1 sm:px-8 xl:px-12 py-8 bg-card">
+      <ShortenLinkForm />
+      <div className="border-t-2 lg:border-0 pt-4 space-y-4 w-full xl:w-[70%]">
+        <h2 className="text-lg font-semibold text-card-foreground">
+          {usersLinks.length === 0 ? (
+            "You have 0 links"
+          ) : (
+            <>
+              Your lastest {usersLinks.length < 5 ? usersLinks.length : 5} links:
+            </>
+          )}
+        </h2>
+        <div>
+          {usersLinks.map((link) => (
+            <div
+              key={link.redirectPath}
+              className="flex items-center justify-between"
+            >
+              <span className="text-sm">
+                {link.linkTitle}
+              </span>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-muted-foreground hover:bg-muted"
               >
-                <span className="text-sm">
-                  {link.linkTitle}
-                </span>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="text-muted-foreground hover:bg-muted"
-                >
-                  <CopyButton text={`https://lnkto.vercel.app/${link.redirectPath}`} />
-                </Button>
-              </div>
-            ))}
-          </div>
-          <Link 
-            href={"/dashboard"}
-            className={buttonVariants({
-              variant: "secondary",
-              className: "flex items-center gap-2 w-full"
-            })}
-          >
-            Dashboard
-            <ArrowUpRight size={15} />
-          </Link>
+                <CopyButton text={`https://lnkto.vercel.app/${link.redirectPath}`} />
+              </Button>
+            </div>
+          ))}
         </div>
+        <Link
+          href={"/dashboard"}
+          className={buttonVariants({
+            variant: "secondary",
+            className: "flex items-center gap-2 w-full"
+          })}
+        >
+          Dashboard
+          <ArrowUpRight size={15} />
+        </Link>
       </div>
     </div>
   )

@@ -1,19 +1,35 @@
 "use client"
 
 import { signOut } from 'next-auth/react'
+import { useState } from 'react'
 
 import { Button } from '@/components/ui/button'
+import { Loader2 } from 'lucide-react';
 
 
 export function SignOutButton() {
+  const [isLoading, setLoading]= useState(false);
+
+  const handleSignOut = () => {
+    setLoading(false);
+    signOut()
+    setLoading(true);
+  }
+
+
   return (
     <Button
       className='w-full py-0 text-sm'
       size={"sm"}
+      disabled={isLoading}
       variant={"destructive"}
-      onClick={() => signOut()}
+      onClick={handleSignOut}
     >
-      Sign Out
+      {isLoading ? (
+        <Loader2 />
+      ) : (
+        <>Sign Out</>
+      )}
     </Button>
   )
 }
