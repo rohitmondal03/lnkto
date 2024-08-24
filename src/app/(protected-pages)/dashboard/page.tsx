@@ -1,7 +1,6 @@
 import { getServerAuthSession } from "@/server/auth";
 import { db } from "@/server/db";
 import { LinkTable } from "./_components/link-table"
-import { Input } from "@/components/ui/input"
 import {
   Card,
   CardHeader,

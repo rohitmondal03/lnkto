@@ -8,12 +8,16 @@ import { Loader2 } from 'lucide-react';
 
 
 export function SignOutButton() {
-  const [isLoading, setLoading]= useState(false);
+  const [isLoading, setLoading] = useState(false);
 
-  const handleSignOut = () => {
-    setLoading(false);
-    signOut()
+  const handleSignOut = async () => {
     setLoading(true);
+
+    try {
+      await signOut()
+    } finally {
+      setLoading(false);
+    }
   }
 
 
