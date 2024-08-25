@@ -1,0 +1,7 @@
+{
+  "workbench.editor.customLabels.patterns": {
+    "**/app/**/page.tsx": "${dirname} - page.tsx",
+    "**/app/**/layout.tsx": "${dirname} - layout.tsx"
+  },
+  "workbench.colorTheme": "GitHub Dark"
+}

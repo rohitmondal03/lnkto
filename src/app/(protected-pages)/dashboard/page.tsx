@@ -9,6 +9,7 @@ import {
   CardContent,
   CardFooter
 } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge";
 
 
 export default async function DashboardPage() {
@@ -25,6 +26,7 @@ export default async function DashboardPage() {
       linkTitle: true,
       redirectPath: true,
       createdAt: true,
+      lastClicked: true,
     },
     orderBy: {
       createdAt: "desc"
@@ -35,8 +37,8 @@ export default async function DashboardPage() {
 
   return (
     <div className="flex min-h-full w-full flex-col bg-slate-500/10 space-y-8 py-6 rounded-xl">
-      <header className="sticky top-0 z-30 flex flex-col sm:flex-row h-14 items-center gap-4 border-b px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
-        <p className="text-xl font-semibold">
+      <header className="sticky top-0 z-30 flex flex-col sm:flex-row items-center gap-4 border-b px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+        <p className="text-2xl font-semibold">
           Your&apos;s links Dashboard
         </p>
         {/* <div className="relative sm:ml-auto flex-1 sm:grow-0 w-full">
@@ -48,6 +50,9 @@ export default async function DashboardPage() {
             className="w-full rounded-lg bg-background pl-8 sm:w-[230px] lg:w-[336px]"
           />
         </div> */}
+        <Badge>
+          Click on the Shortened link to copy it !!
+        </Badge>
       </header>
       <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
         <Card x-chunk="dashboard-06-chunk-0">
@@ -64,7 +69,7 @@ export default async function DashboardPage() {
               links={usersLinks}
             />
           </CardContent>
-          <CardFooter>
+          {/* <CardFooter>
             <div className="text-xs text-muted-foreground">
               Showing {" "}
               <strong>1-{usersLinks.length < 10 ? usersLinks.length : 10}</strong> {" "}
@@ -72,7 +77,7 @@ export default async function DashboardPage() {
               <strong>{usersLinks.length}</strong> {" "}
               links
             </div>
-          </CardFooter>
+          </CardFooter> */}
         </Card>
       </main>
     </div>

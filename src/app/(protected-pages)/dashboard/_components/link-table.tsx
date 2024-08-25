@@ -24,6 +24,7 @@ type TProps = {
     linkTitle: string,
     redirectPath: string,
     createdAt: Date,
+    lastClicked: Date | null,
   }[]
 }
 
@@ -35,7 +36,7 @@ export function LinkTable({ links }: TProps) {
         <TableRow>
           <TableHead>Title</TableHead>
           <TableHead className="hidden lg:table-cell">Link</TableHead>
-          <TableHead className="hidden lg:table-cell">Created At</TableHead>
+          <TableHead className="hidden lg:table-cell">Last Clicked</TableHead>
           <TableHead className="table-cell">Shortened</TableHead>
           <TableHead>Clicks</TableHead>
           <TableHead></TableHead>
@@ -45,7 +46,7 @@ export function LinkTable({ links }: TProps) {
         {links.map((link) => (
           <TableRow
             key={link.redirectPath}
-            className="hover:bg-orange-100/40 cursor-pointer"
+            className="hover:bg-transparent"
           >
             <TableCell>
               {link.linkTitle}
@@ -54,11 +55,11 @@ export function LinkTable({ links }: TProps) {
               {link.link}
             </TableCell>
             <TableCell className="hidden lg:table-cell font-medium">
-              {link.createdAt.toDateString()}
+              {link.lastClicked ? link.lastClicked.toDateString() : "--"}
             </TableCell>
-            <TableCell className="table-cell">
+            <TableCell className="table-cell w-fit">
               <Badge
-                className="cursor-pointer"
+                className="cursor-pointer bg-zinc-200 hover:bg-black hover:text-white"
                 variant="secondary"
                 onClick={() => copyText(`https://lnkto.vercel.app/${link.redirectPath}`)}
               >
