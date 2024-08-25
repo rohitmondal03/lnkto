@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 const swrConfig: SWRConfiguration = {
   refreshInterval: 3000,
-  fetcher: (res, init) => fetch(res, init).then(data => data.json()),
+  fetcher: (res: string, init: RequestInit) => fetch(res, init).then(data => data.json()),
 }
 
 
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: TLayout) {
       lang="en"
       className={montserrratFont.className}
     >
-      <SWRConfig value={swrConfig}>
+      {/* <SWRConfig value={swrConfig}> */}
         <body>
           <Navbar />
           <main className="px-3 sm:px-8 lg:px-12 py-16">
@@ -42,7 +42,7 @@ export default function RootLayout({ children }: TLayout) {
           </main>
           <Toaster />
         </body>
-      </SWRConfig>
+      {/* </SWRConfig> */}
     </html>
   );
 }
