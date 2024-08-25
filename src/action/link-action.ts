@@ -34,10 +34,10 @@ export async function shortenLinkAction({ link, length, title }: TLink) {
 }
 
 
-export async function deleteLinkAction(redirectPath: string) {
+export async function deleteLinkAction(shortLink: string) {
   await db.link.delete({
     where: {
-      redirectPath: redirectPath
+      redirectPath: shortLink
     }
   })
 

@@ -3,5 +3,8 @@
     "**/app/**/page.tsx": "${dirname} - page.tsx",
     "**/app/**/layout.tsx": "${dirname} - layout.tsx"
   },
-  "workbench.colorTheme": "GitHub Dark"
+  "workbench.colorTheme": "GitHub Dark",
+  "workbench.colorCustomizations": {
+    "editorLineNumber.foreground": "#6c6c6c"
+  }
 }
