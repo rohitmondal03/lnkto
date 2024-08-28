@@ -18,10 +18,10 @@ export function ShortenLinkForm() {
   const clientShortenLinkAction = async (formData: FormData) => {
     const data = {
       link: formData.get("url"),
-      length: formData.get("range") as unknown as Number,
+      length: Number(formData.get("range")),
       title: formData.get("title")
     }
-
+    
     const short = await shortenLinkAction(data as TLink);
 
     toast({
