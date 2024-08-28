@@ -8,6 +8,7 @@ import { deleteLinkAction } from "@/action/link-action"
 import { copyText } from "@/lib/functions/copy-text"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
+import { Dialog, DialogContent } from "@/components/ui/dialog"
 import {
   Table,
   TableHeader,
@@ -16,7 +17,6 @@ import {
   TableBody,
   TableCell
 } from "@/components/ui/table"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 
 
 type TProps = {
@@ -34,9 +34,6 @@ type TProps = {
 export function LinkTable({ links }: TProps) {
   const [isPending, startTransition] = useTransition();
 
-  useEffect(() => {
-    console.log(isPending);
-  }, [isPending]);
 
   return links.length > 0 ? (
     <>
