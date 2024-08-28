@@ -73,6 +73,11 @@ const AvatarDropdown = ({ children }: TLayout) => {
             Dashboard
           </Link>
         </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Link href={"/manage-link"}>
+            Manage Link
+          </Link>
+        </DropdownMenuItem>
         <DropdownMenuItem className="px-0 py-0">
           <SignOutButton />
         </DropdownMenuItem>

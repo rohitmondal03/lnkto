@@ -1,6 +1,7 @@
 import { getServerAuthSession } from "@/server/auth";
 import { db } from "@/server/db";
 import { LinkTable } from "./_components/link-table"
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardHeader,
@@ -9,7 +10,6 @@ import {
   CardContent,
   CardFooter
 } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge";
 
 
 export default async function DashboardPage() {
