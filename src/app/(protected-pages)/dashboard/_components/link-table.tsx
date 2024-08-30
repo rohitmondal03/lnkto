@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useEffect, useTransition } from "react"
+import { useTransition } from "react"
 import { Loader2, Trash2 } from "lucide-react"
 
 import { useCopy } from "@/hooks/use-copy"
@@ -33,6 +33,7 @@ type TProps = {
 
 export function LinkTable({ links }: TProps) {
   const [isPending, startTransition] = useTransition();
+  const copyText = useCopy();
 
 
   return links.length > 0 ? (
@@ -67,7 +68,7 @@ export function LinkTable({ links }: TProps) {
                 <Badge
                   className="cursor-pointer bg-zinc-200 hover:bg-black hover:text-white"
                   variant="secondary"
-                  onClick={() => useCopy(`https://lnkto.vercel.app/${link.redirectPath}`)}
+                  onClick={() => copyText(`https://lnkto.vercel.app/${link.redirectPath}`)}
                 >
                   <span className="hidden lg:block">lnkto.vercel.app</span>/{link.redirectPath}
                 </Badge>

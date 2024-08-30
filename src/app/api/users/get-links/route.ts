@@ -3,8 +3,13 @@ import { getServerAuthSession } from "@/server/auth";
 import { NextResponse } from "next/server";
 
 
+type TRequestBody = {
+  page: number
+}
+
+
 export async function POST(req: Request) {
-  const { page } = await req.json();
+  const { page }: TRequestBody = await req.json() as TRequestBody;
   const session = await getServerAuthSession();
   const userId = session?.user.id;
 

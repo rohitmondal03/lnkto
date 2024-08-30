@@ -9,9 +9,10 @@ import { Card, CardContent } from '@/components/ui/card';
 
 
 export function LinkCard(props: TLink) {
-  const handleLinkEdit = (path: string) => {
+  const copyText = useCopy();
 
-  }
+  // const handleLinkEdit = (path: string) => {}
+
 
   return (
     <Card>
@@ -39,14 +40,14 @@ export function LinkCard(props: TLink) {
           <Button
             variant={"default"}
             size={"icon"}
-            onClick={() => handleLinkEdit(props.redirectPath)}
+            // onClick={() => handleLinkEdit(props.redirectPath)}
           >
             <Edit2 className='scale-75' />
           </Button>
           <Button
             variant={"outline"}
             size={"icon"}
-            onClick={() => useCopy("")}
+            onClick={() => copyText(`https://lnkto.vercel.app/${props.redirectPath}`)}
           >
             <CopyIcon className='scale-75' />
           </Button>

@@ -1,6 +1,6 @@
 "use client"
 
-import { Link as TLink } from '@prisma/client';
+import { type Link as TLink } from '@prisma/client';
 import { useEffect, useState } from "react";
 
 import { toast } from "@/components/ui/use-toast";
@@ -37,27 +37,27 @@ export function LinksContainer({ }: TProps) {
 
 
   useEffect(() => {
-    (async () => {
+    void (async () => {
       // if (totalUsersLinks > page * 4) {
-        setIsFetching(true);
+      setIsFetching(true);
 
-        await fetch("/api/users/get-links", {
-          method: "POST",
-          body: JSON.stringify({
-            page: page,
+      await fetch("/api/users/get-links", {
+        method: "POST",
+        body: JSON.stringify({
+          page: page,
+        })
+      })
+        .then(res => res.json())
+        .then((data: TLink[]) => setData(data))
+        .catch((err) => {
+          toast({
+            title: "Error !!",
+            description: `Error while retreiving data, ${err}`
           })
         })
-          .then(res => res.json())
-          .then(data => setData(data))
-          .catch((err) => {
-            toast({
-              title: "Error !!",
-              description: `Error while retreiving data, ${err}`
-            })
-          })
-          .finally(() => {
-            setIsFetching(false);
-          })
+        .finally(() => {
+          setIsFetching(false);
+        })
       // }
     })()
   }, [page])

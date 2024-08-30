@@ -11,11 +11,13 @@ type TProps = {
 
 
 export function CopyButton({ text }: TProps) {
+  const copyText = useCopy();
+
   return (
     <>
       <CopyIcon
         className="w-4 h-4"
-        onClick={() => useCopy(text)}
+        onClick={() => copyText(text)}
       />
       <span className="sr-only">
         Copy
