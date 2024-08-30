@@ -1,7 +1,7 @@
 import { toast } from "@/components/ui/use-toast";
 
 
-export async function copyText(text: string) {
+export async function useCopy(text: string) {
   try {
     await navigator.clipboard.writeText(text);
     toast({

@@ -9,7 +9,7 @@ import "@/styles/globals.css";
 
 
 const instrument_sans_font = Instrument_Sans({
-  weight: [ "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin-ext"],
   fallback: ["serif"]
 })

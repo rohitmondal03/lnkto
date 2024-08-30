@@ -28,7 +28,6 @@ export function ShortenLinkForm() {
       title: "Link shortened",
       description: "https://lnkto.vercel.app" + short.path,
     })
-    console.log(data)
   }
 
 

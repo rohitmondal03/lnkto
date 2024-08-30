@@ -4,8 +4,8 @@ import Link from "next/link"
 import { useEffect, useTransition } from "react"
 import { Loader2, Trash2 } from "lucide-react"
 
+import { useCopy } from "@/hooks/use-copy"
 import { deleteLinkAction } from "@/action/link-action"
-import { copyText } from "@/lib/functions/copy-text"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
@@ -67,7 +67,7 @@ export function LinkTable({ links }: TProps) {
                 <Badge
                   className="cursor-pointer bg-zinc-200 hover:bg-black hover:text-white"
                   variant="secondary"
-                  onClick={() => copyText(`https://lnkto.vercel.app/${link.redirectPath}`)}
+                  onClick={() => useCopy(`https://lnkto.vercel.app/${link.redirectPath}`)}
                 >
                   <span className="hidden lg:block">lnkto.vercel.app</span>/{link.redirectPath}
                 </Badge>

@@ -2,7 +2,7 @@
 
 import { CopyIcon } from 'lucide-react'
 
-import { copyText } from '@/lib/functions/copy-text'
+import { useCopy } from '@/hooks/use-copy'
 
 
 type TProps = {
@@ -15,7 +15,7 @@ export function CopyButton({ text }: TProps) {
     <>
       <CopyIcon
         className="w-4 h-4"
-        onClick={() => copyText(text)}
+        onClick={() => useCopy(text)}
       />
       <span className="sr-only">
         Copy
