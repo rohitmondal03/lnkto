@@ -1,5 +1,6 @@
 import { type Metadata } from "next";
 import { Instrument_Sans } from "next/font/google"
+import { Suspense } from "react";
 
 import type { TLayout } from "@/lib/types";
 import { Toaster } from "@/components/ui/toaster"
@@ -28,14 +29,16 @@ export default function RootLayout({ children }: TLayout) {
       lang="en"
       className={instrument_sans_font.className}
     >
-      <body>
-        <LoaderProvider />
-        <Navbar />
-        <main className="px-3 sm:px-8 lg:px-12 py-16">
-          {children}
-        </main>
-        <Toaster />
-      </body>
+      <Suspense fallback={<>Loading...</>}>
+        <body>
+          <LoaderProvider />
+          <Navbar />
+          <main className="px-3 sm:px-8 lg:px-12 py-16">
+            {children}
+          </main>
+          <Toaster />
+        </body>
+      </Suspense>
     </html>
   );
 }
