@@ -1,8 +1,7 @@
 import { type Metadata } from "next";
+import { type PropsWithChildren, Suspense } from "react";
 import { Instrument_Sans } from "next/font/google"
-import { Suspense } from "react";
 
-import type { TLayout } from "@/lib/types";
 import { Toaster } from "@/components/ui/toaster"
 import { LoaderProvider } from "@/components/provider/loader-provider";
 import Navbar from "@/components/shared/navbar";
@@ -23,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 
-export default function RootLayout({ children }: TLayout) {
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html
       lang="en"

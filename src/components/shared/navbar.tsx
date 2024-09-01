@@ -1,6 +1,6 @@
 import Link from "next/link"
+import { type PropsWithChildren } from "react"
 
-import type { TLayout } from "@/lib/types"
 import Logo from "./logo"
 import { getServerAuthSession } from "@/server/auth"
 import { SignOutButton } from "./button/sign-out-button"
@@ -61,7 +61,7 @@ export default async function Navbar() {
 
 
 
-const AvatarDropdown = ({ children }: TLayout) => {
+const AvatarDropdown = ({ children }: PropsWithChildren) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
