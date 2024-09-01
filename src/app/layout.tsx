@@ -28,16 +28,18 @@ export default function RootLayout({ children }: PropsWithChildren) {
       lang="en"
       className={instrument_sans_font.className}
     >
-      <Suspense fallback={<>Loading...</>}>
-        <body>
+      <body>
+        <Suspense fallback={<>Loading...</>}>
           <LoaderProvider />
-          <Navbar />
-          <main className="px-3 sm:px-8 lg:px-12 py-16">
-            {children}
+          <main>
+            <Navbar />
+            <div className="px-3 sm:px-8 lg:px-12 py-16">
+              {children}
+            </div>
           </main>
           <Toaster />
-        </body>
-      </Suspense>
+        </Suspense>
+      </body>
     </html>
   );
 }
