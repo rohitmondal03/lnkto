@@ -41,5 +41,6 @@ export async function deleteLinkAction(shortLink: string) {
     }
   })
 
-  revalidatePath("/dashboard")
+  revalidatePath("/dashboard");
+  revalidatePath("/manage-link", "page");
 }

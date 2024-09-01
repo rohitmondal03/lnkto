@@ -3,6 +3,7 @@ import { Instrument_Sans } from "next/font/google"
 
 import type { TLayout } from "@/lib/types";
 import { Toaster } from "@/components/ui/toaster"
+import { LoaderProvider } from "@/components/provider/loader-provider";
 import Navbar from "@/components/shared/navbar";
 
 import "@/styles/globals.css";
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: TLayout) {
       className={instrument_sans_font.className}
     >
       <body>
+        <LoaderProvider />
         <Navbar />
         <main className="px-3 sm:px-8 lg:px-12 py-16">
           {children}

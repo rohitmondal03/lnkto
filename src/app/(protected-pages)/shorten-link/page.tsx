@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Link2 } from "lucide-react"
 
 import { db } from "@/server/db"
 import { getServerAuthSession } from "@/server/auth"
@@ -61,12 +61,22 @@ export default async function ShortenLinkPage() {
         <Link
           href={"/dashboard"}
           className={buttonVariants({
-            variant: "secondary",
+            variant: "default",
             className: "flex items-center gap-2 w-full"
           })}
         >
           Dashboard
           <ArrowUpRight size={15} />
+        </Link>
+        <Link
+          href={"/dashboard"}
+          className={buttonVariants({
+            variant: "default",
+            className: "flex items-center gap-2 w-full"
+          })}
+        >
+          Manage Links
+          <Link2 size={15} />
         </Link>
       </div>
     </div>

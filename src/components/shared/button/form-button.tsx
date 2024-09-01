@@ -13,7 +13,7 @@ export function SubmitButton() {
       className="w-full"
       disabled={pending}
     >
-      {pending ? <Loader /> : "Shorten"}
+      {pending ? <Loader /> : "Hit 'Enter' to shoreten link"}
     </Button>
   )
 }
