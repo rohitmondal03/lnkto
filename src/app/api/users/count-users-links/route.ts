@@ -1,9 +1,10 @@
-import { db } from "@/server/db";
-import { getServerAuthSession } from "@/server/auth";
 import { NextResponse } from "next/server";
 
+import { db } from "@/server/db";
+import { getServerAuthSession } from "@/server/auth";
 
-export async function GET(req: Request) {
+
+export async function GET() {
   const session = await getServerAuthSession();
   const userId = session?.user.id;
 

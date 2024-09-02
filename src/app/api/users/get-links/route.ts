@@ -20,7 +20,7 @@ export async function POST(req: Request) {
     orderBy: {
       createdAt: "desc"
     },
-    take: page * 4,
+    take: page * 6,
     // skip: (page - 1) * 4,
   })
 

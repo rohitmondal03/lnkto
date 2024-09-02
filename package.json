@@ -38,6 +38,7 @@
     "qr-code-styler": "^1.5.0-rc.4.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-qr-code": "^2.0.15",
     "short-unique-id": "^5.2.0",
     "slug": "^9.1.0",
     "tailwind-merge": "^2.5.2",

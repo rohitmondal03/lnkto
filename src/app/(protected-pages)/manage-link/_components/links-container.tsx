@@ -20,25 +20,25 @@ export function LinksContainer({ }: TProps) {
   const [page, setPage] = useState(1);
 
 
-  // useEffect(() => {
-  //   // count total links of users
-  //   (async () => {
-  //     await fetch("/api/users/count-users-links")
-  //       .then(res => res.json())
-  //       .then(data => setTotalUsersLinks(data))
-  //       .catch((err) => {
-  //         toast({
-  //           title: "Error !!",
-  //           description: `Error getting users links count !!, ${err}`
-  //         })
-  //       })
-  //   })()
-  // }, [])
+  useEffect(() => {
+    // count total links of users
+    void (async () => {
+      await fetch("/api/users/count-users-links")
+        .then(res => res.json())
+        .then((data: number) => setTotalUsersLinks(data))
+        .catch((err) => {
+          toast({
+            title: "Error !!",
+            description: `Error getting users links count !!, ${err}`
+          })
+        })
+    })()
+  }, [])
 
 
   useEffect(() => {
+    // fetch user's links
     void (async () => {
-      // if (totalUsersLinks > page * 4) {
       setIsFetching(true);
 
       await fetch("/api/users/get-links", {
@@ -58,24 +58,23 @@ export function LinksContainer({ }: TProps) {
         .finally(() => {
           setIsFetching(false);
         })
-      // }
     })()
   }, [page])
 
 
   return (
-    <div className='space-y-4'>
-      <div className='grid grid-cols-2 gap-4'>
+    <div className='space-y-12'>
+      <div className='grid md:grid-cols-2 xl:grid-cols-3 gap-6'>
         {data.map((data) => (
           <LinkCard key={data.id} {...data} />
         ))}
       </div>
       <div className='w-full'>
         <Button
-          className='mx-auto'
+          className='mx-auto w-full'
           onClick={() => setPage(prev => prev + 1)}
         >
-          {isFetching ? "Fetching..." : "Load more"}
+          {isFetching && data.length < totalUsersLinks ? "Fetching..." : "Load more"}
         </Button>
       </div>
     </div>
