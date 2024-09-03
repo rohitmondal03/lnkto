@@ -1,75 +1,57 @@
-import Link from "next/link"
-import Image from "next/image"
-import { ClockIcon, InfoIcon, LinkIcon } from "lucide-react"
+import { Link, Laptop, Smartphone, Server } from "lucide-react"
 
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-[100dvh]">
-      <section className="w-full py-12 md:py-24 lg:py-32">
-        <div className="container px-0">
-          <div className="grid gap-4 md:grid-cols-2 md:gap-6 lg:gap-16">
-            <div className="space-y-5 text-center md:text-left">
-              <h1 className="font-bold text-3xl sm:text-4xl md:text-[2.5rem] lg:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem] lg:leading-tight sm:leading-tight">
-                Shorten your links with <span className="underline decoration-slate-500 underline-offset-4">lnkto</span>
-              </h1>
-              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                lnkto is a simple and powerful link shortener that helps you create custom, trackable links for your
-                business.
-              </p>
-              <Link
-                href="/shorten-link"
-                className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                prefetch={false}
-              >
-                Start Shortening
-              </Link>
+    <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
+      <div className="container mx-auto px-4 py-8">
+        <header className="text-center mb-12">
+          <h1 className="text-5xl font-bold mb-2 flex items-center justify-center text-blue-600">
+            <Link className="w-10 h-10 mr-2" />
+            lnkto
+          </h1>
+          <p className="text-xl text-gray-600">Streamline Your Links, Amplify Your Reach</p>
+        </header>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div className="space-y-6">
+            <div className="bg-blue-50 rounded-lg p-6 space-y-4">
+              <h2 className="text-2xl font-semibold text-blue-800">Why Choose lnkto?</h2>
+              <ul className="list-disc list-inside space-y-2 text-gray-700">
+                <li>Lightning-fast link shortening</li>
+                <li>Secure and reliable redirects</li>
+                <li>Detailed analytics and click tracking</li>
+                <li>Customizable short URLs</li>
+              </ul>
             </div>
-            <div className="flex items-center justify-center">
-              <Image
-                src="/assets/hero-img.svg"
-                width="400"
-                height="400"
-                alt="lnkto hero"
-                className="mx-auto aspect-square overflow-hidden rounded-xl"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
-        <div className="container px-4 md:px-6">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="flex flex-col items-start gap-4">
-              <LinkIcon className="h-8 w-8 text-primary" />
-              <h3 className="text-xl font-bold">
-                Customizable Links
-              </h3>
-              <p className="text-muted-foreground">
-                Create custom, branded links that are easy to remember and share.
-                </p>
-            </div>
-            <div className="flex flex-col items-start gap-4">
-              <InfoIcon className="h-8 w-8 text-primary" />
-              <h3 className="text-xl font-bold">
-                Advanced Analytics
-              </h3>
-              <p className="text-muted-foreground">
-                Track your link performance with detailed analytics and insights.
-              </p>
-            </div>
-            <div className="flex flex-col items-start gap-4">
-              <ClockIcon className="h-8 w-8 text-primary" />
-              <h3 className="text-xl font-bold">
-                Link Expiration
-              </h3>
-              <p className="text-muted-foreground">
-                Set expiration dates for your links to control access and visibility.
-              </p>
+            <div className="bg-purple-50 rounded-lg p-6 space-y-4">
+              <h2 className="text-2xl font-semibold text-purple-800">How It Works</h2>
+              <ol className="list-decimal list-inside space-y-2 text-gray-700">
+                <li>Paste your long URL</li>
+                <li>Click &aspo;Shorten URL&aspo;</li>
+                <li>Copy your new, shortened link</li>
+                <li>Share across platforms</li>
+              </ol>
             </div>
           </div>
+          <div className="relative h-96">
+            {/* Tech illustrations */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-72 h-72 border-4 border-blue-200 rounded-full animate-pulse"></div>
+            </div>
+            <Laptop className="absolute top-1/4 left-1/4 w-16 h-16 text-blue-500 animate-float" />
+            <Smartphone className="absolute top-1/2 right-1/4 w-12 h-12 text-purple-500 animate-float-delayed" />
+            <Server className="absolute bottom-1/4 left-1/3 w-14 h-14 text-green-500 animate-float" />
+            {/* Abstract tech elements */}
+            <svg className="absolute top-1/3 right-1/3 w-20 h-20 text-yellow-500 animate-spin-slow" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+            </svg>
+            <svg className="absolute bottom-1/4 right-1/4 w-16 h-16 text-red-500 animate-pulse" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M3,12L7,16V13H14V11H7V8M21,12L17,8V11H10V13H17V16" />
+            </svg>
+          </div>
         </div>
-      </section>
+      </div>
     </div>
   )
 }
