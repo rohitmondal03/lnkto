@@ -28,7 +28,7 @@ export default function HomePage() {
               <h2 className="text-2xl font-semibold text-purple-800">How It Works</h2>
               <ol className="list-decimal list-inside space-y-2 text-gray-700">
                 <li>Paste your long URL</li>
-                <li>Click &aspo;Shorten URL&aspo;</li>
+                <li>Click and Shorten URL</li>
                 <li>Copy your new, shortened link</li>
                 <li>Share across platforms</li>
               </ol>
