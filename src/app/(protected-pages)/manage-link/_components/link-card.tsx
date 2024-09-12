@@ -1,6 +1,8 @@
+"use client"
+
 import type { Link as TLink } from "@prisma/client";
 import Link from 'next/link';
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { CopyIcon, Edit2, Trash2 } from 'lucide-react';
 import QRCode from "react-qr-code"
 
@@ -14,12 +16,10 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 
 export function LinkCard(props: TLink) {
   const copyText = useCopy();
-  const [isLoading, setLoading] = useState(false);
+  const [isPending, transition] = useTransition();
 
 
   const handleLinkDelete = async (redirectPath: string) => {
-    setLoading(true);
-
     await deleteLinkAction(redirectPath)
       .then(() => {
         toast({
@@ -34,9 +34,6 @@ export function LinkCard(props: TLink) {
           description: "Not able to delete this links right now !!",
           type: "background"
         })
-      })
-      .finally(() => {
-        setLoading(false);
       })
   }
 
@@ -94,7 +91,7 @@ export function LinkCard(props: TLink) {
           <Button
             variant={"destructive"}
             size={"icon"}
-            onClick={() => handleLinkDelete(props.redirectPath)}
+            onClick={() => transition(() => handleLinkDelete(props.redirectPath))}
           >
             <Trash2 />
           </Button>
@@ -111,13 +108,13 @@ export function LinkCard(props: TLink) {
               <QRCode
                 value={`https://lnkto.vercel.app/${props.redirectPath}`}
                 size={55}
-                style={{ 
-                  height: "70%", 
-                  maxWidth: "100%", 
+                style={{
+                  height: "70%",
+                  maxWidth: "100%",
                   width: "70%",
                   margin: "0 auto"
-                 }}
-                 allowReorder="yes"
+                }}
+                allowReorder="yes"
               />
             </DialogContent>
           </Dialog>

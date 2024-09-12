@@ -46,7 +46,7 @@ export function LinkTable({ links }: TProps) {
             <TableHead className="hidden lg:table-cell">Last Clicked</TableHead>
             <TableHead className="table-cell">Shortened</TableHead>
             <TableHead>Clicks</TableHead>
-            <TableHead></TableHead>
+            <TableHead className="hidden sm:table-cell"></TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -78,7 +78,7 @@ export function LinkTable({ links }: TProps) {
               </TableCell>
               <TableCell>
                 <Trash2
-                  className="cursor-pointer hover:scale-110 transition"
+                  className="cursor-pointer hover:scale-110 transition hidden sm:table-cell"
                   onClick={() => startTransition(() => deleteLinkAction(link.redirectPath))}
                   size={"20"}
                 />
